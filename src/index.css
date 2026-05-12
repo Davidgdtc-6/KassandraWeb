@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-floral text-ink font-sans m-0 overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-magenta/20 text-ink;
+  }
+}
+
+@layer utilities {
+  .noise-overlay::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/20 shadow-lg;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-3
+      bg-magenta text-white font-sans font-semibold text-sm tracking-wider uppercase
+      rounded-full overflow-hidden
+      transition-all duration-500 ease-out
+      hover:scale-[1.03] hover:shadow-xl hover:shadow-magenta/25;
+  }
+
+  .btn-primary::before {
+    content: "";
+    @apply absolute inset-0 bg-white/10 translate-y-full transition-transform duration-500 ease-out;
+  }
+
+  .btn-primary:hover::before {
+    @apply translate-y-0;
+  }
+
+  .btn-outline {
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-3
+      border border-ink/20 text-ink font-sans font-semibold text-sm tracking-wider uppercase
+      rounded-full overflow-hidden
+      transition-all duration-500 ease-out
+      hover:border-magenta hover:text-magenta hover:scale-[1.03];
+  }
+
+  .section-title {
+    @apply font-sans font-bold text-3xl md:text-4xl lg:text-5xl text-ink tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply font-serif italic text-magenta text-lg md:text-xl lg:text-2xl;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
