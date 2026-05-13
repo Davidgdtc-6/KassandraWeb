@@ -131,12 +131,12 @@ export default function Hero() {
               className="anim-img absolute top-0 right-0 w-3/5 rounded-[2rem] shadow-2xl shadow-rose/30 object-cover aspect-[3/4] -rotate-3"
             />
             <img
-              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=800&fit=crop"
+              src="https://res.cloudinary.com/dsay0it3n/image/upload/v1778643736/12_Hair_Products_That_Are_Worth_Your_Money_-_Society19_rrqe3p.jpg"
               alt="Peinado elegante"
               className="anim-img absolute bottom-0 left-0 w-3/5 rounded-[2rem] shadow-2xl shadow-magenta/20 object-cover aspect-[3/4] rotate-2 z-10"
             />
             <img
-              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=800&fit=crop"
+              src="https://res.cloudinary.com/dsay0it3n/image/upload/v1778643736/The_Troy_Always_Styled_Hair_Trick_iudcjt.jpg"
               alt="Coloración premium"
               className="anim-img absolute top-1/4 left-1/4 w-2/5 rounded-[2rem] shadow-xl shadow-magenta/15 object-cover aspect-square z-20"
             />

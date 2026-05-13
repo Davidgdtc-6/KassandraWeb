@@ -6,15 +6,14 @@ export default function WhatsAppButton() {
       href="https://wa.me/message/NEC4V43HNLMHC1"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16
-        bg-magenta rounded-full flex items-center justify-center
-        shadow-xl shadow-magenta/40
-        transition-all duration-500 ease-out
-        hover:scale-110 hover:shadow-2xl hover:shadow-magenta/50
-        animate-pulse-slow"
+      className="fixed bottom-6 right-6 z-50 w-12 h-12 md:w-14 md:h-14
+        bg-[#25D366] rounded-full flex items-center justify-center
+        shadow-lg shadow-[#25D366]/30
+        transition-all duration-300 ease-out
+        hover:scale-105 hover:shadow-xl hover:shadow-[#25D366]/40"
       aria-label="WhatsApp"
     >
-      <MessageCircle className="w-7 h-7 md:w-8 md:h-8 text-white fill-white" />
+      <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-white fill-white" />
     </a>
   );
 }

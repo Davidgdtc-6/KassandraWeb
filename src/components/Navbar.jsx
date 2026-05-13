@@ -79,18 +79,18 @@ export default function Navbar() {
         </a>
       ))}
 
-      <a
-        href="https://wa.me/message/NEC4V43HNLMHC1"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1.5 md:gap-2 px-3 md:px-5 py-1.5 md:py-2
-          bg-magenta text-white text-xs font-sans font-semibold tracking-wider
-          rounded-full transition-all duration-500 hover:scale-[1.03]
-          hover:shadow-lg hover:shadow-magenta/30"
-      >
-        <MessageCircle className="w-3.5 h-3.5 md:w-4 md:h-4" />
-        <span className="hidden md:inline">Reservar</span>
-      </a>
+<a
+          href="https://wa.me/message/NEC4V43HNLMHC1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 md:gap-2 px-3 md:px-5 py-1.5 md:py-2
+            bg-[#25D366] text-white text-xs font-sans font-semibold tracking-wider
+            rounded-full transition-all duration-500 hover:scale-[1.03]
+            hover:shadow-lg hover:shadow-[#25D366]/30"
+        >
+          <MessageCircle className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          <span className="hidden md:inline">Reservar</span>
+        </a>
     </nav>
   );
 }
