@@ -1,6 +1,5 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Features from "./components/Features";
 import Metrics from "./components/Metrics";
 import Process from "./components/Process";
 import About from "./components/About";
@@ -16,7 +15,6 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Features />
         <Metrics />
         <Process />
         <About />

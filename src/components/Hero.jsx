@@ -85,7 +85,7 @@ export default function Hero() {
               href="https://wa.me/message/NEC4V43HNLMHC1"
               target="_blank"
               rel="noopener noreferrer"
-              className="anim-btn btn-primary"
+              className="anim-btn inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#25D366] text-white font-sans font-semibold text-sm tracking-wider uppercase rounded-full overflow-hidden transition-all duration-500 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-[#25D366]/25"
             >
               <MessageCircle className="w-4 h-4" />
               Reservar cita
