@@ -105,7 +105,7 @@ export default function Footer() {
         {/* Map */}
         <div className="mt-10 rounded-2xl overflow-hidden shadow-lg shadow-rose/10">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.814232402935!2d-80.2172!3d-3.7005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM3DCsDQwJzAuMiUgODjCsDEzJzAuMiJX!5e0!3m2!1ses-419!2sec!4v1234567890"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.590138704876!2d-79.6823991!3d-3.6803377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x90335f631f4d1457%3A0xcacaef9b4d66ef20!2sGarcia%20Moreno%20%26%20Bolivar%2C%20Pi%C3%B1as!5e0!3m2!1ses-419!2sec!4v1778643524269!5m2!1ses-419!2sec"
             width="100%"
             height="200"
             style={{ border: 0 }}
