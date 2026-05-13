@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <span className="font-serif italic text-2xl text-magenta">
-              Kassandra Mejías Estudio
+              Kassandra Armijos Studio
             </span>
             <p className="font-sans text-sm text-ink/50 mt-3 leading-relaxed max-w-xs">
               Experiencias de belleza premium con atención personalizada y
@@ -85,9 +85,14 @@ export default function Footer() {
                   WhatsApp
                 </a>
               </li>
-              <li className="flex items-center gap-2 font-sans text-sm text-ink/50">
-                <MapPin className="w-4 h-4 shrink-0" />
-                Piñas, El Oro, Ecuador
+              <li className="flex items-start gap-2 font-sans text-sm text-ink/50">
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
+                <span>
+                  García Moreno y Bolívar<br />
+                  Edificio esquinero gris/blanco<br />
+                  Diagonal al parque central<br />
+                  3er piso, Piñas, El Oro
+                </span>
               </li>
               <li className="flex items-center gap-2 font-sans text-sm text-ink/50">
                 <Clock className="w-4 h-4 shrink-0" />
@@ -97,10 +102,24 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Map */}
+        <div className="mt-10 rounded-2xl overflow-hidden shadow-lg shadow-rose/10">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.814232402935!2d-80.2172!3d-3.7005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM3DCsDQwJzAuMiUgODjCsDEzJzAuMiJX!5e0!3m2!1ses-419!2sec!4v1234567890"
+            width="100%"
+            height="200"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-48 rounded-2xl"
+          />
+        </div>
+
         {/* Bottom bar */}
         <div className="mt-12 md:mt-16 pt-8 border-t border-ink/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="font-mono text-xs text-ink/30">
-            &copy; 2026 Kassandra Mejías Estudio. Todos los derechos reservados.
+            &copy; 2026 Kassandra Armijos Studio. Todos los derechos reservados.
           </span>
           <span className="font-mono text-xs text-ink/30 flex items-center gap-2">
             Sistema activo
