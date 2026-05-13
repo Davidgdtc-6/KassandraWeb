@@ -1,107 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Calendar, Check, Save } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const BEFORE_IMG = "https://res.cloudinary.com/dsay0it3n/image/upload/v1778605946/antes_wahnmh.jpg";
-const AFTER_IMG = "https://res.cloudinary.com/dsay0it3n/image/upload/v1778605946/despues_zzo5gx.jpg";
-
-function BeforeAfter() {
-  const [position, setPosition] = useState(50);
-  const containerRef = useRef(null);
-  const isDragging = useRef(false);
-
-  const handleMove = (e) => {
-    if (!isDragging.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = (e.clientX ?? e.touches?.[0]?.clientX) - rect.left;
-    const p = Math.max(3, Math.min(97, (x / rect.width) * 100));
-    setPosition(p);
-  };
-
-  useEffect(() => {
-    const onUp = () => { isDragging.current = false; };
-    window.addEventListener("mouseup", onUp);
-    window.addEventListener("touchend", onUp);
-    return () => {
-      window.removeEventListener("mouseup", onUp);
-      window.removeEventListener("touchend", onUp);
-    };
-  }, []);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top 85%",
-        onEnter: () => {
-          gsap.fromTo(
-            containerRef.current,
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
-          );
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <div className="bg-white/70 backdrop-blur-sm rounded-[2rem] p-6 md:p-8 shadow-xl shadow-rose/20 border border-rose/30 card-hover">
-      <h3 className="font-sans font-bold text-xl md:text-2xl text-ink mb-4">
-        Transformaciones reales
-      </h3>
-
-      <div
-        ref={containerRef}
-        className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-ew-resize select-none"
-        onMouseDown={() => { isDragging.current = true; }}
-        onTouchStart={() => { isDragging.current = true; }}
-        onMouseMove={handleMove}
-        onTouchMove={handleMove}
-      >
-        <img
-          src={AFTER_IMG}
-          alt="Después"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "50% 0%" }}
-        />
-        <div
-          className="absolute inset-0 overflow-hidden"
-          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-        >
-          <img
-            src={BEFORE_IMG}
-            alt="Antes"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "50% 0%" }}
-          />
-        </div>
-        <div
-          className="absolute inset-y-0 w-0.5 bg-white shadow-lg"
-          style={{ left: `${position}%` }}
-        >
-          <div
-            className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2
-              w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center
-              text-xs font-bold text-ink cursor-ew-resize"
-          >
-            ⋮
-          </div>
-        </div>
-        <span className="absolute bottom-3 left-3 font-sans text-xs text-white/80 bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">
-          Antes
-        </span>
-        <span className="absolute bottom-3 right-3 font-sans text-xs text-white/80 bg-black/30 px-2 py-1 rounded-full backdrop-blur-sm">
-          Después
-        </span>
-      </div>
-    </div>
-  );
-}
 
 const TESTIMONIALS = [
   {
@@ -199,119 +100,7 @@ function TestimonialRotator() {
   );
 }
 
-const DAYS = ["Lun", "Mar", "Mié", "Jue", "Vie"];
-const HOURS = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"];
 
-function CalendarCursor() {
-  const [selectedDay, setSelectedDay] = useState(2);
-  const [selectedHour, setSelectedHour] = useState(3);
-  const [saved, setSaved] = useState(false);
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const cycle = setInterval(() => {
-      setSelectedDay((prev) => (prev + 1) % DAYS.length);
-      setSelectedHour((prev) => (prev + 1) % HOURS.length);
-      setSaved(false);
-    }, 4000);
-
-    const saveTimer = setInterval(() => {
-      setSaved(true);
-    }, 3000);
-
-    return () => {
-      clearInterval(cycle);
-      clearInterval(saveTimer);
-    };
-  }, []);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top 85%",
-        onEnter: () => {
-          gsap.fromTo(
-            containerRef.current,
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
-          );
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <div
-      ref={containerRef}
-      className="bg-white/70 backdrop-blur-sm rounded-[2rem] p-6 md:p-8 shadow-xl shadow-rose/20 border border-rose/30 card-hover"
-    >
-      <div className="flex items-center gap-2 mb-5">
-        <Calendar className="w-5 h-5 text-magenta" />
-        <h3 className="font-sans font-bold text-xl md:text-2xl text-ink">
-          Reserva fácil
-        </h3>
-      </div>
-
-      <div className="space-y-3">
-        <div className="flex gap-1.5">
-          {DAYS.map((d, i) => (
-            <button
-              key={d}
-              onClick={() => setSelectedDay(i)}
-              className={`flex-1 py-2 text-xs font-sans font-medium rounded-xl transition-all duration-300 ${
-                i === selectedDay
-                  ? "bg-magenta text-white shadow-md shadow-magenta/25"
-                  : "bg-rose text-ink/60 hover:bg-rose/80"
-              }`}
-            >
-              {d}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-3 gap-1.5">
-          {HOURS.map((h, i) => (
-            <button
-              key={h}
-              onClick={() => setSelectedHour(i)}
-              className={`py-2 text-xs font-sans font-medium rounded-xl transition-all duration-300 ${
-                i === selectedHour
-                  ? "bg-magenta text-white shadow-md shadow-magenta/25"
-                  : "bg-rose text-ink/60 hover:bg-rose/80"
-              }`}
-            >
-              {h}
-            </button>
-          ))}
-        </div>
-
-        <button
-          className={`w-full py-2.5 rounded-xl font-sans font-semibold text-xs tracking-wider uppercase
-            transition-all duration-500 flex items-center justify-center gap-2 ${
-              saved
-                ? "bg-emerald-500 text-white shadow-md"
-                : "bg-ink/10 text-ink/50 hover:bg-magenta hover:text-white"
-            }`}
-        >
-          {saved ? (
-            <>
-              <Check className="w-3.5 h-3.5" />
-              Reservado
-            </>
-          ) : (
-            <>
-              <Save className="w-3.5 h-3.5" />
-              Guardar
-            </>
-          )}
-        </button>
-      </div>
-    </div>
-  );
-}
 
 export default function Features() {
   const sectionRef = useRef(null);
@@ -356,10 +145,8 @@ export default function Features() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 md:gap-8">
-          <BeforeAfter />
+        <div className="grid md:grid-cols-1 max-w-md mx-auto gap-5 md:gap-8">
           <TestimonialRotator />
-          <CalendarCursor />
         </div>
       </div>
     </section>
